@@ -1,6 +1,7 @@
 package com.ProductQueryService.ProductQueryService.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +19,12 @@ public class ProductViewService {
 		return productViewRepository.findAll();
 	}
 
-//	public Optional<ProductView> getOne(Long id) {
-//		return productViewRepository.findById(id).orElseThrow(u->u.productQueryServiceApplication);
-//	}
+	public ProductView getOne(String id) {
+		return productViewRepository.findById(id)
+				.orElseThrow(() -> new RuntimeException("Product not found with id : " + id));
+	}
+
+	public boolean save(ProductView productView) {
+		return productViewRepository.save(productView) != null;
+	}
 }

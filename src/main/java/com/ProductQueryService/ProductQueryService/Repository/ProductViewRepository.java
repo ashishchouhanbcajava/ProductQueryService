@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.ProductQueryService.ProductQueryService.Beans.ProductView;
 
 @Repository
-public interface ProductViewRepository extends MongoRepository<ProductView, Long> {
+public interface ProductViewRepository extends MongoRepository<ProductView, String> {
 
 }
